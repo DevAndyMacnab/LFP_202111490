@@ -2,18 +2,53 @@ class Movies:
     def __init__(self,listMovies):
         self.listMovies=listMovies
         
-    def getNames(self):
+        
+    def filterByActor(self, actorName):
+        countdown=0
+        actorName=actorName
         for element in self.listMovies:
-            print("Esto es una prueba")
-    def getActors(self):
-        for actor in self.listMovies:
-            print("...")
-    def getYear(self):
-        for year in self.listMovies:
-            print("...")
-    def getGenre(self):
-        for genre in self.listMovies:
-            print("...")
+            if actorName in element["Actores"]:
+                countdown+=1
+                print("PELICULA:",element["Pelicula"])
+        if countdown==0:
+            print("No se encontro el actor que ha ingresado...")
+            return False
+        else:
+            print("--------------------------------")
+            return True
         
+    def filterByYear(self,yearInput):
+        countdown=0
+        yearInput=yearInput
+        for element in self.listMovies:
+            if yearInput in element["Actores"]:
+                countdown+=1
+                print("PELICULA:",element["Pelicula"])
+        if countdown==0:
+            print("No se encontro el actor que ha ingresado...")
+            return False
+        else:
+            print("--------------------------------")
+            return True
         
-        
+    
+    
+    def getData(self):
+        countdown=0
+        for element in self.listMovies:
+            countdown+=1
+            print(countdown ,"PELICULA:",element["Pelicula"] ,"| ACTORES:",element["Actores"] ,"| AÑO:",element["Año"] ,"| CATEGORIA:",element["Categoria"])
+            print("--------------------------------")        
+    
+    
+    def showActors(self):
+        countdown=0
+        for element in self.listMovies:
+            countdown+=1
+            print(countdown ,"PELICULA:",element["Pelicula"] )
+            print("--------------------------------") 
+        option=int(input("Seleccione el numero de la pelicula... "))
+        print("Los actores de la pelicula seleccionada son: ")
+        for element in self.listMovies[option-1]["Actores"]:
+            print(element)
+            

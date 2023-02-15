@@ -16,6 +16,7 @@ def LoadFile(FileDirection):
             "Categoria":splittedLine[3]
             
         })
-
+    
     print("Archivo Cargado correctamente")
     return movies
+
