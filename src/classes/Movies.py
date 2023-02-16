@@ -11,7 +11,7 @@ class Movies:
                 countdown+=1
                 print("PELICULA:",element["Pelicula"])
         if countdown==0:
-            print("No se encontro el actor que ha ingresado...")
+            print("No se encontro el actor que ha ingresado... \n")
             return False
         else:
             print("--------------------------------")
@@ -21,7 +21,21 @@ class Movies:
         countdown=0
         yearInput=yearInput
         for element in self.listMovies:
-            if yearInput in element["Actores"]:
+            if yearInput in element["Año"]:
+                countdown+=1
+                print("PELICULA:",element["Pelicula"], "| CATEGORIA: " , element["Categoria"])
+        if countdown==0:
+            print("El año ingresado no posee peliculas en nuestra base de datos...")
+            return False
+        else:
+            print("--------------------------------")
+            return True
+        
+    def filterByGenre(self,genreName):
+        countdown=0
+        genreName=genreName
+        for element in self.listMovies:
+            if genreName in element["Categoria"]:
                 countdown+=1
                 print("PELICULA:",element["Pelicula"])
         if countdown==0:

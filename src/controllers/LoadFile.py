@@ -7,13 +7,13 @@ def LoadFile(FileDirection):
     movies=[]
     for line in content:
         splittedLine=line.split(";")
-        actorsList=splittedLine[1].split(",")
+        actorsList=splittedLine[1].strip().split(",")
         
         movies.append({
-            "Pelicula":splittedLine[0],
+            "Pelicula":splittedLine[0].strip(),
             "Actores":actorsList,
-            "Año":splittedLine[2],
-            "Categoria":splittedLine[3]
+            "Año":splittedLine[2].strip(),
+            "Categoria":splittedLine[3].strip()
             
         })
     

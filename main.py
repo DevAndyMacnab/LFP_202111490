@@ -63,6 +63,24 @@ while True:
                 print("-----------------------------------")
                 actorName=input("Ingrese el nombre del actor que desea buscar... ")
                 movies.filterByActor(actorName)
+                
+            if option=="b":
+                print("-----------------------------------")
+                yearInput=input("Ingrese el año que desea visualizar... ")
+                movies.filterByYear(yearInput)
+                
+            if option =="c":
+                print("-----------------------------------")
+                genreName=input("Ingrese el nombre de la categoria que desea visualizar... ")
+                movies.filterByGenre(genreName)
+                
+            if option=="d":
+                break
+    
+    
+    elif option=="4":
+        print("Ha seleccionado la opcion de graficar")
+                
         
              
     elif option=="5":
