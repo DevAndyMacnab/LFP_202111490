@@ -1,3 +1,5 @@
+from src.controllers.Graphviz import createGraphic
+
 class Movies:
     def __init__(self,listMovies):
         self.listMovies=listMovies
@@ -49,10 +51,13 @@ class Movies:
     
     def getData(self):
         countdown=0
+        listCopy=self.listMovies.copy()
         for element in self.listMovies:
             countdown+=1
             print(countdown ,"PELICULA:",element["Pelicula"] ,"| ACTORES:",element["Actores"] ,"| AÑO:",element["Año"] ,"| CATEGORIA:",element["Categoria"])
-            print("--------------------------------")        
+            print("--------------------------------")    
+        
+        return listCopy
     
     
     def showActors(self):
@@ -72,3 +77,13 @@ class Movies:
                 print(element)
         except:
             print("ERROR: EL VALOR INGRESADO NO ES VALIDO!!!")
+            
+            
+    def graphicData(self):
+        actors=[]
+        for element in self.listMovies:
+            for actor in element["Actores"]:
+                actors.append(actor)
+        actors=set(actors)
+        
+        createGraphic(self.listMovies,actors)

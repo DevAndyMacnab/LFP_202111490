@@ -1,4 +1,42 @@
+
+
 iteracion = 0
+#---------------------------
+peliculas = {
+    'Avengers': 
+    {
+        'Actores':['Robert Dw. Jr', 'Chris Hermswor', 'Chris Evans', 'Mark Bufalo'], 
+        'Anio': 2012, 
+        'Genero': 'Accion'
+    }, 
+    'Spiderman Homecoming':
+    {
+        'Actores':['Robert Dw. Jr', 'Tom Holland', 'Zendaya'],
+        'Anio':2016,
+        'Genero':'Accion'
+    }, 
+    'Spiderman No Way Home':
+    {
+        'Actores':['Robert Dw. Jr', 'Tom Holland', 'Zendaya'],
+        'Anio': 2018,
+        'Genero': 'Accion'
+    }, 
+    'Avengers Infinity War':
+    {
+        'Actores':['Robert Dw. Jr', 'Chris Hermswor', 'Chris Evans'], 
+        'Anio': 2018,
+        'Genero': 'Accion'
+    },
+    'Thor Ragnarok':
+    {
+        'Actores':['Chris Hermswor', 'Mark Bufalo'],
+        'Anio': 2017,
+        'Genero': 'Accion'
+    }}
+
+actores = ['Robert Dw. Jr', 'Chris Hermswor', 'Chris Evans', 'Mark Bufalo', 'Tom Holland', 'Zendaya']
+#------------------------------------
+
 
 def crear_nodo(pelicula, anio, genero):
     global iteracion
@@ -30,23 +68,22 @@ def createGraphic(movies,actors):
     iteracion_2 = 1
     # Aqui creamos los nodos de peliculas
 
-    for pelicula in movies:
-        anio = pelicula["Año"]
-        genero = pelicula["Categoria"]
-        movie=pelicula["Pelicula"]
-        nodo =crear_nodo(movie, anio, genero)
+    for pelicula in peliculas.keys():
+        anio = peliculas[pelicula]['Anio']
+        genero = peliculas[pelicula]['Genero']
+        nodo =crear_nodo(pelicula, anio, genero)
         data += nodo
 
     # Aqui agregamos el estilo a los nodos de actores
     data += 'node [shape=box, style=filled, fillcolor="#00c853"]'
     # Aqui creamos los nodos de actores
-    for actor in actors:
+    for actor in actores:
         nodo = crear_actor(actor)
         data += nodo
 
     # Aqui creamos las relaciones
-    for pelicula in movies:
-        for actor in pelicula['Actores']:
+    for pelicula in peliculas.keys():
+        for actor in peliculas[pelicula]['Actores']:
             relacion = crear_relacion(iteracion_2,actor)
             data += relacion
         iteracion_2 += 1

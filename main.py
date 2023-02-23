@@ -3,7 +3,6 @@ from src.controllers.LoadFile import LoadFile
 from src.classes.Movies import Movies
 
 
-
 #Informacion general del programa
 print('''Lenguajes Formales y de Programacion
         Seccion B+
@@ -100,7 +99,12 @@ while True:
     
     
     elif option=="4":
-        print("Ha seleccionado la opcion de graficar")
+        if movies=="":
+            print("ERROR: DEBE CARGAR UN ARCHIVO PRIMERO!!!")
+        else:
+            movies.graphicData()
+            
+        
                 
         
              
