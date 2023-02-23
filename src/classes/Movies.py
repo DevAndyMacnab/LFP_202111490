@@ -11,7 +11,7 @@ class Movies:
                 countdown+=1
                 print("PELICULA:",element["Pelicula"])
         if countdown==0:
-            print("No se encontro el actor que ha ingresado... \n")
+            print("No se encontro el ACTOR que ha ingresado... \n")
             return False
         else:
             print("--------------------------------")
@@ -39,7 +39,7 @@ class Movies:
                 countdown+=1
                 print("PELICULA:",element["Pelicula"])
         if countdown==0:
-            print("No se encontro el actor que ha ingresado...")
+            print("No se encontró la CATEGORIA que ha ingresado...")
             return False
         else:
             print("--------------------------------")
@@ -61,8 +61,14 @@ class Movies:
             countdown+=1
             print(countdown ,"PELICULA:",element["Pelicula"] )
             print("--------------------------------") 
-        option=int(input("Seleccione el numero de la pelicula... "))
-        print("Los actores de la pelicula seleccionada son: ")
-        for element in self.listMovies[option-1]["Actores"]:
-            print(element)
+        try:    
+            option=int(input("Seleccione el numero de la pelicula... "))
+            print("Los actores de la pelicula seleccionada son: ")
             
+            
+        
+        
+            for element in self.listMovies[option-1]["Actores"]:
+                print(element)
+        except:
+            print("ERROR: EL VALOR INGRESADO NO ES VALIDO!!!")

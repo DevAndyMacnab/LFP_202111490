@@ -16,6 +16,7 @@ input("Ingrese cualquier tecla....")
 fileRequest=[]
 movies=""
 
+
 while True:
     print("-----------------------------------------------")
     print('''Ingrese la opcion que corresponda:
@@ -27,7 +28,10 @@ while True:
         5.Salir''')
     option=input("Ingrese la opcion que desea....  ")
     
-
+    #Validacion por si el usuario ingresa una opcion incorrecta
+    
+    
+    #Ejecucion de las funciones segun sea seleccionada por el usuario    
     if option == "1":
         print("Ha seleccionado cargar archivo")
         fileDirection="./src/static/archivo prueba.lfP"
@@ -36,8 +40,15 @@ while True:
         
           
     elif option =="2":
+        
+            
         while True:
-
+            
+            #Comprobacion de que el usuario haya ejecutado la funcion de cargar archivo primero para seleccionar cualquier otra
+            if movies=="":
+                print("ERROR: DEBE CARGAR UN ARCHIVO PRIMERO!!!")
+                break
+            
             print('''Seleccion una de las siguientes opciones
                     a. Mostrar Peliculas
                     b. Mostrar Actores
@@ -49,10 +60,17 @@ while True:
                 movies.showActors()
             elif option=="c":
                 break
+            else:
+                print("ERROR: DEBE INGRESAR UNA OPCION VALIDA!!!")
     
     
     elif option=="3":
         while True:
+            
+            if movies=="":
+                print("ERROR: DEBE CARGAR UN ARCHIVO PRIMERO!!!")
+                break
+            
             print('''Seleccion una de las siguientes opciones
                 a. Filtrar por actor
                 b. Filtrar por año
@@ -64,18 +82,21 @@ while True:
                 actorName=input("Ingrese el nombre del actor que desea buscar... ")
                 movies.filterByActor(actorName)
                 
-            if option=="b":
+            elif option=="b":
                 print("-----------------------------------")
                 yearInput=input("Ingrese el año que desea visualizar... ")
                 movies.filterByYear(yearInput)
                 
-            if option =="c":
+            elif option =="c":
                 print("-----------------------------------")
                 genreName=input("Ingrese el nombre de la categoria que desea visualizar... ")
                 movies.filterByGenre(genreName)
                 
-            if option=="d":
+            elif option=="d":
                 break
+            
+            else:
+                print("ERROR: DEBE INGRESAR UNA OPCION VALIDA!!!")
     
     
     elif option=="4":
@@ -86,6 +107,9 @@ while True:
     elif option=="5":
         print("Saliendo del programa....")
         break
+    
+    else:
+        print("ERROR: DEBE INGRESAR UNA OPCION VÁLIDA!!!")
                  
         
         
