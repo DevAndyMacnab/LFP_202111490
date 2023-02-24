@@ -104,9 +104,6 @@ while True:
         else:
             movies.graphicData()
             
-        
-                
-        
              
     elif option=="5":
         print("Saliendo del programa....")
@@ -114,13 +111,3 @@ while True:
     
     else:
         print("ERROR: DEBE INGRESAR UNA OPCION VÁLIDA!!!")
-                 
-        
-        
-    
-
-
-
-
-    
-
